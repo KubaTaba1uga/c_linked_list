@@ -1,2 +1,3 @@
-# c_linked_list
-Linked list implementation as c exercise
+# C linked list 
+
+Project is created only for educational purposes.
