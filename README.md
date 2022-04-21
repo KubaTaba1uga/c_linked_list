@@ -1,3 +1,7 @@
 # C linked list 
 
-Project is created only for educational purposes.
+My implementation of linked list.
+
+Project is created for educational purposes.
+
+
