@@ -1,4 +1,7 @@
 #include "linked_list.h"
+
+#include "example/example_context.h"
+
 void linked_list_swap(l_list *a, l_list *b) {
   void **tmp = a->value;
   a->value = b->value;

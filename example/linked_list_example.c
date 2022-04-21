@@ -13,20 +13,14 @@
 #define RANGE_MAX 99
 #define LIST_SIZE 2000000
 
-void show_progress(int i) {
-  const char *progress = "-\\|/";
-  printf("%c%c%c]", 8, 8, progress[(i / 100) % 4]);
-  fflush(stdout);
-}
-
 int main(void) {
   // reset random seed
   srand(time(0));
 
-  /* printf("Initializing array [-]"); */
+  printf("Initializing array [-]");
 
+  /* l_list *l = NULL; */
   /* /\* test adding to list *\/ */
-
   /* //  test insert */
   /* for (int i = 0; i < LIST_SIZE; ++i) { */
   /*   if (!(i % 100)) */
@@ -38,16 +32,17 @@ int main(void) {
   /* } */
   /* puts(""); */
 
-  /* /\* // test append *\/ */
-  /* /\* for (int i = 0; i < LIST_SIZE; ++i) { *\/ */
-  /* /\*   if (!(i % 100)) *\/ */
-  /* /\*     show_progress(i); *\/ */
+  l_list *l = linked_list_create_node(create_numbers(0, 0));
+  // test append
+  for (int i = 0; i < LIST_SIZE; ++i) {
+    if (!(i % 100))
+      show_progress(i);
 
-  /* /\*   // create random numbers *\/ */
-  /* /\*   numbers *n = create_random_numbers(RANGE_MIN, RANGE_MAX); *\/ */
-  /* /\*   l = linked_list_insert(l, n, 0); *\/ */
-  /* /\* } *\/ */
-  /* /\* puts(""); *\/ */
+    // create random numbers
+    numbers *n = create_random_numbers(RANGE_MIN, RANGE_MAX);
+    l = linked_list_insert(l, n, 0);
+  }
+  puts("");
 
   /* /\* test searching *\/ */
   /* l_list *l_cp = l; */
@@ -82,8 +77,8 @@ int main(void) {
 
   /* /\* test removing from list *\/ */
 
-  /* //  test clear */
-  /* linked_list_clear(l); */
+  //  test clear
+  linked_list_clear(l);
 
   /* /\* // test remove *\/ */
   /* /\* l_list *l_cp_2 = l; *\/ */
