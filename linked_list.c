@@ -1,8 +1,8 @@
 #include "linked_list.h"
 
 l_list *linked_list_create_node(void *value) {
-  /* Create new linked list node. */
-  /* If not enough memory to allocate it */
+  /* Create new linked list node, using `value`. */
+  /* If not enough memory to allocate*/
   /*   return `NULL`. */
   l_list *n = (l_list *)malloc(sizeof(l_list));
 
@@ -33,7 +33,7 @@ l_list *linked_list_get_node(l_list *l, int i) {
 }
 
 void *linked_list_get_value(l_list *l, int i) {
-  /* Find node with  index `i` and return its value.  */
+  /* Find node with  index `i` and return it's value.  */
   /* If  `i` is bigger than linked list length, assign */
   /*	`ERANGE` to errno and return `NULL`. */
 

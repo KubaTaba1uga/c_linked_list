@@ -26,6 +26,7 @@ int main(void) {
   int bubble_sort_results[TESTS_NO], insertion_sort_results[TESTS_NO];
   int avg_bubble_sort;
 
+  // test bubble sort
   for (int i = 0; i <= TESTS_NO; i++) {
     l = NULL;
     l = fill_list_with_numbers(l, LIST_SIZE, RANGE_MIN, RANGE_MAX);
@@ -36,13 +37,15 @@ int main(void) {
     linked_list_bubble_sort(l, cmp_a);
 
     bubble_sort_results[i] = clock() - clk;
+
+    linked_list_clear(l);
   }
 
   avg_bubble_sort = sum_array(TESTS_NO, bubble_sort_results) / TESTS_NO;
 
   show_avg(avg_bubble_sort);
 
-  linked_list_clear(l);
+  // test insertion sort
 
   return EXIT_SUCCESS;
 }

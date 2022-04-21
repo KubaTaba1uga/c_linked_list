@@ -3,6 +3,7 @@
 #include "example/example_context.h"
 
 void linked_list_swap(l_list *a, l_list *b) {
+  /* Swap value of node `a` with value of node `b`. */
   void **tmp = a->value;
   a->value = b->value;
   b->value = tmp;
@@ -29,3 +30,7 @@ void linked_list_bubble_sort(l_list *l, bool cmp_function(void *, void *)) {
 
   } while (swap_counter > 0);
 }
+
+void linked_list_insertion_sort(l_list *l, bool cmp_function(void *, void *)){
+
+};
