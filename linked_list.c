@@ -201,22 +201,3 @@ void linked_list_clear(l_list *l) {
   while (l)
     l = linked_list_remove(l, 0);
 }
-
-l_list *linked_list_sort(l_list *l, bool cmp_function(void *, void *)) {
-  l_list *sorted = l;
-  l_list *un_sorted = l->next;
-  while (un_sorted) {
-    while (sorted) {
-      if (cmp_function(sorted->value, un_sorted->value)) {
-        // swap
-        sorted->next = un_sorted->next;
-        un_sorted->next = sorted;
-        un_sorted = sorted->next;
-        break;
-      } else
-        sorted = sorted->next;
-    }
-  }
-
-  return un_sorted;
-}

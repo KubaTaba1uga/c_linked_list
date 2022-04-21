@@ -23,26 +23,6 @@ int main(void) {
   // reset random seed
   srand(time(0));
 
-  numbers *first_n = create_numbers(2, 2);
-  numbers *second_n = create_numbers(3, 3);
-  numbers *third_n = create_numbers(0, 0);
-  numbers *thourth_n = create_numbers(1, 1);
-  // create linked list
-  l_list *l = linked_list_create_node(first_n);
-  linked_list_append(l, second_n);
-  linked_list_append(l, third_n);
-  linked_list_append(l, thourth_n);
-
-  l = linked_list_sort(l, cmp_a);
-
-  /* show list content */
-  l_list *l_cp = l;
-  while (l_cp->next) {
-    numbers *n = l_cp->value;
-    printf("a=%i | b=%i\n", n->a, n->b);
-    l_cp = l_cp->next;
-  }
-
   /* printf("Initializing array [-]"); */
 
   /* /\* test adding to list *\/ */

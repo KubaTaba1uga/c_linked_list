@@ -36,6 +36,4 @@ l_list *linked_list_find(l_list *l, void *value,
 int linked_list_index_of(l_list *l, void *value,
                          bool cmp_function(void *, void *));
 
-l_list *linked_list_sort(l_list *l, bool cmp_function(void *, void *));
-
 #endif
