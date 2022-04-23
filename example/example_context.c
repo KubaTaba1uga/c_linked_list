@@ -1,9 +1,21 @@
 #include "example_context.h"
 
 void show_progress(int i) {
-  const char *progress = "-\\|/";
-  printf("%c%c%c]", 8, 8, progress[(i / 100) % 4]);
+  const char *progress = "-\\|/-";
+  // 8 is clearing one char before
+  // 8, 8 is clearing two chars before
+  printf("%c%c%c]", 8, 8, progress[(i / 100) % 5]);
   fflush(stdout);
+}
+
+void show_numbers(numbers *n) { printf("a=%i | b=%i\n", n->a, n->b); }
+
+void show_list(l_list *l) {
+  while (l) {
+    numbers *n = l->value;
+    show_numbers(n);
+    l = l->next;
+  }
 }
 
 int create_random_n(int lower, int upper) {
@@ -36,7 +48,7 @@ bool is_a(void *n, void *a) {
 }
 
 bool cmp_a(void *n, void *m) {
-  static int zxcvbnmasdfghjkl = 0;
+  static long long int zxcvbnmasdfghjkl = 0;
   if (zxcvbnmasdfghjkl++ % 100 == 0)
     show_progress(zxcvbnmasdfghjkl);
 
@@ -59,14 +71,6 @@ l_list *fill_list_with_numbers(l_list *l, int elements_no, int min, int max) {
   }
 
   return l;
-}
-
-void show_list(l_list *l) {
-  while (l) {
-    numbers *n = l->value;
-    printf("a=%i | b=%i\n", n->a, n->b);
-    l = l->next;
-  }
 }
 
 int sum_array(int n, int arr[n]) {
